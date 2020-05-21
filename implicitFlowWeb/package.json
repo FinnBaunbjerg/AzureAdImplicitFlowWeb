@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cpconfig": "cpx ./src/web.config ./dist/implicitFlow"
+    "cpconfig": "cpx ./src/web.config ./dist/implicitflow"
   },
   "private": true,
   "dependencies": {
