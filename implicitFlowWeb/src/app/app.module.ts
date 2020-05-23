@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-const protectedResourceMap: any = [environment.baseUrl, environment.scopeUri];
+const protectedResourceMap: any = [[environment.baseUrl, environment.scopeUri]];
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function loggerCallback(logLevel, message, piiEnabled) {
