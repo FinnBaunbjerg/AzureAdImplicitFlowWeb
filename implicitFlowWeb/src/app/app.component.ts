@@ -33,5 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.logoutSubscription) {
       this.loginSubscription.unsubscribe();
     }
+
+    this.msalService.logout();
   }
 }
