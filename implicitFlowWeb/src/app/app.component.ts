@@ -11,17 +11,20 @@ export class AppComponent implements OnInit, OnDestroy {
   loginSubscription;
   logoutSubscription;
   constructor(private broadcastService: BroadcastService, private msalService: MsalService) {
-    this.msalService.loginPopup();
+    this.msalService.logout();
   }
 
   ngOnInit(): void {
     this.loginSubscription = this.broadcastService.subscribe('msal:loginFailure', payload => {
+      console.log( 'login failure');
       console.log(payload);
     });
 
     this.logoutSubscription = this.broadcastService.subscribe('msal:loginSuccess', payload => {
       console.log(payload);
     });
+
+    this.msalService.loginPopup();
   }
 
   ngOnDestroy(): void {
@@ -34,6 +37,5 @@ export class AppComponent implements OnInit, OnDestroy {
       this.loginSubscription.unsubscribe();
     }
 
-    this.msalService.logout();
   }
 }
