@@ -11,7 +11,7 @@ export class AppComponent implements OnInit, OnDestroy {
   loginSubscription;
   logoutSubscription;
   constructor(private broadcastService: BroadcastService, private msalService: MsalService) {
-    this.msalService.logout();
+
   }
 
   ngOnInit(): void {
@@ -28,6 +28,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.msalService.logout();
+
     this.broadcastService.getMSALSubject().next(1);
     if (this.loginSubscription) {
       this.loginSubscription.unsubscribe();
